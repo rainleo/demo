@@ -1,6 +1,7 @@
 package com.example.demo.web;
 
 import com.example.demo.domain.UserDO;
+import com.example.demo.exception.MyException;
 import com.example.demo.service.UserService;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,12 +29,13 @@ public class UserController {
             @ApiResponse(code = 200, message = "results", response = String.class)
     })
     @RequestMapping(value = "/createUser", method = RequestMethod.POST)
-    public String postUser(@ModelAttribute UserDO userDO) {
-        if (userService.insert(userDO) == 1) {
+    public String postUser(@ModelAttribute UserDO userDO) throws MyException {
+            throw new MyException("哈哈哈");
+        /*if (userService.insert(userDO) == 1) {
             return "true";//
         } else {
             return "false";
-        }
+        }*/
     }
 
 }

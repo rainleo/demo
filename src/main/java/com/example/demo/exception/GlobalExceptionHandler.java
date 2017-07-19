@@ -17,7 +17,7 @@ class GlobalExceptionHandler {
 
     public static final String DEFAULT_ERROR_VIEW = "error";
 
-    //定义函数针对的异常类型
+    //统一定义，如果发生了异常，跳转到error.vm界面
     @ExceptionHandler(value = Exception.class)
     public ModelAndView defaultErrorHandler(HttpServletRequest req,Exception e) throws Exception{
         ModelAndView mav = new ModelAndView();
