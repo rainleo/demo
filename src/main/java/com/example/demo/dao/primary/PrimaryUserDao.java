@@ -1,4 +1,4 @@
-package com.example.demo.dao;
+package com.example.demo.dao.primary;
 
 import com.example.demo.domain.UserDO;
 import org.apache.ibatis.annotations.Mapper;
@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 @Mapper
-public interface UserDao {
+public interface PrimaryUserDao {
     int insert(@Param("pojo") UserDO pojo);
 
     int insertSelective(@Param("pojo") UserDO pojo);
