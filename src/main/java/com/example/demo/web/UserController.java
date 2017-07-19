@@ -30,7 +30,7 @@ public class UserController {
     @RequestMapping(value = "/createUser", method = RequestMethod.POST)
     public String postUser(@ModelAttribute UserDO userDO) {
         if (userService.insert(userDO) == 1) {
-            return "true";
+            return "true";//
         } else {
             return "false";
         }
