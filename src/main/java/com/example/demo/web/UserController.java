@@ -1,9 +1,9 @@
 package com.example.demo.web;
 
 import com.example.demo.domain.UserDO;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
-import io.swagger.annotations.ApiOperation;
+import com.example.demo.service.UserService;
+import io.swagger.annotations.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -15,51 +15,25 @@ import java.util.*;
 @RestController
 @RequestMapping(value = "/users")
 public class UserController {
+    @Autowired
+    private UserService userService;
 
-    // 创建线程安全的Map
-    static Map<Long, UserDO> users = Collections.synchronizedMap(new HashMap<Long, UserDO>());
 
-    @ApiOperation(value="获取用户列表", notes="")
-    @RequestMapping(value="/", method= RequestMethod.GET)
-    public List<UserDO> getUserList() {
-        // 处理"/users/"的GET请求，用来获取用户列表
-        // 还可以通过@RequestParam从页面中传递参数来进行查询条件或者翻页信息的传递
-        List<UserDO> r = new ArrayList<UserDO>(users.values());
-        return r;
-    }
-    @ApiOperation(value="创建用户", notes="根据User对象创建用户")
-    @ApiImplicitParam(name = "UserDO", value = "用户详细实体user", required = true, dataType = "UserDO")
-    @RequestMapping(value="/", method=RequestMethod.POST)
-    public String postUser(@ModelAttribute UserDO UserDO) {
-        // 处理"/users/"的POST请求，用来创建User
-        // 除了@ModelAttribute绑定参数之外，还可以通过@RequestParam从页面中传递参数
-        users.put(UserDO.getId(), UserDO);
-        return "success";
-    }
-    @ApiOperation(value="获取用户详细信息", notes="根据url的id来获取用户详细信息")
-    @ApiImplicitParam(name = "id", value = "用户ID", required = true, dataType = "Long",paramType = "path")
-    @RequestMapping(value="/{id}", method=RequestMethod.GET)
-    public UserDO getUser(@PathVariable Long id) {
-        return users.get(id);
-    }
-    @ApiOperation(value="更新用户详细信息", notes="根据url的id来指定更新对象，并根据传过来的user信息来更新用户详细信息")
+    @ApiOperation(value = "创建用户", notes = "根据User对象创建用户")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "id", value = "用户ID", required = true, dataType = "Long",paramType = "path"),
-            @ApiImplicitParam(name = "UserDO", value = "用户详细实体user", required = true, dataType = "UserDO")
+            @ApiImplicitParam(name = "id", value = "id", required = false, dataType = "int",paramType = "query"),
+            @ApiImplicitParam(name = "name", value = "用户名", required = true, dataType = "String",paramType = "query"),
+            @ApiImplicitParam(name = "age", value = "密码", required = true, dataType = "int",paramType = "query")})
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "results", response = String.class)
     })
-    @RequestMapping(value="/{id}", method=RequestMethod.PUT)
-    public String putUser(@PathVariable Long id, @RequestBody UserDO UserDO) {
-        com.example.demo.domain.UserDO u = users.get(id);
-        u.setName(UserDO.getName());
-        u.setAge(UserDO.getAge());
-        users.put(id, u);
-        return "success";
+    @RequestMapping(value = "/createUser", method = RequestMethod.POST)
+    public String postUser(@ModelAttribute UserDO userDO) {
+        if (userService.insert(userDO) == 1) {
+            return "true";
+        } else {
+            return "false";
+        }
     }
-    @ApiOperation(value="删除用户", notes="根据url的id来指定删除对象")
-    @ApiImplicitParam(name = "id", value = "用户ID", required = true, dataType = "Long",paramType = "query")
-    @RequestMapping(value="/{id}", method=RequestMethod.DELETE)
-    public String deleteUser(@PathVariable Long id) {
-        users.remove(id);
-        return "success";
-    }
+
 }
