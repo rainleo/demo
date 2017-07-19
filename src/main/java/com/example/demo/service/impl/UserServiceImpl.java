@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
 
     @CacheEvict(value = "userCache", allEntries = true)
     public int insert(UserDO pojo){
-        int i = userDao.insert(pojo);//非高并发123
+        int i = userDao.insert(pojo);//非高并发1234
         //<editor-fold desc="redisTemplate">
         /*if(i > 0){
             redisTemplate.delete("user:");
