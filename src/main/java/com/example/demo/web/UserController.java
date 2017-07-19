@@ -28,14 +28,16 @@ public class UserController {
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "results", response = String.class)
     })
-    @RequestMapping(value = "/createUser", method = RequestMethod.POST)
-    public String postUser(@ModelAttribute UserDO userDO) throws MyException {
-            throw new MyException("哈哈哈");
-        /*if (userService.insert(userDO) == 1) {
+    @RequestMapping(value = "/createUser", method = RequestMethod.GET)
+    public String postUser() throws MyException {
+        UserDO userDO = new UserDO();
+        userDO.setName("jin1");
+        userDO.setAge(25);
+        if (userService.insert(userDO) == 1) {
             return "true";//
         } else {
             return "false";
-        }*/
+        }
     }
 
 }

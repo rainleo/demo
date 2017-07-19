@@ -27,6 +27,13 @@ class GlobalExceptionHandler {
         return mav;
     }
 
+    /**
+     * 定义自己的异常返回值。
+     * @param req
+     * @param e
+     * @return
+     * @throws Exception
+     */
     @ExceptionHandler(value = MyException.class)
     @ResponseBody
     public ErrorInfo<String> jsonErrorHandler(HttpServletRequest req, MyException e) throws Exception {
