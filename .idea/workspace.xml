@@ -2,28 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c4b6eb91-95d3-478b-bde6-3f2e76d06e61" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/static/QQ图片20170719161542.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_pool2_2_4_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_cache_1_5_3_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_redis_1_5_3_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_1_13_3_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_keyvalue_1_2_3_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_redis_1_8_3_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_4_3_8_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_oxm_4_3_8_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__redis_clients_jedis_2_9_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/web/HelloController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/example/demo/web/HelloController.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/example/demo/service/impl/UserServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/service/impl/UserServiceImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/example/demo/web/UserController.class" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/web/UserController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Swagger2.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Swagger2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/domain/UserDO.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/domain/UserDO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/service/impl/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/impl/UserServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/web/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/web/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/application.properties" afterPath="$PROJECT_DIR$/target/classes/application.properties" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -1873,7 +1854,7 @@
       <workItem from="1500301728462" duration="673000" />
       <workItem from="1500302676359" duration="366000" />
       <workItem from="1500370472901" duration="94000" />
-      <workItem from="1500449564010" duration="6392000" />
+      <workItem from="1500449564010" duration="6474000" />
     </task>
     <task id="LOCAL-00001" summary="上班提交测试">
       <created>1500370534202</created>
@@ -1903,7 +1884,14 @@
       <option name="project" value="LOCAL" />
       <updated>1500453675296</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="重新调整">
+      <created>1500456727031</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1500456727031</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1939,7 +1927,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="134628000" />
+    <option name="totallyTimeSpent" value="134710000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2080,7 +2068,8 @@
     <MESSAGE value="上班提交测试2" />
     <MESSAGE value="上班提交测试3" />
     <MESSAGE value="项目调整 去掉不需要的，最原始的spring boot+mybatis项目" />
-    <option name="LAST_COMMIT_MESSAGE" value="项目调整 去掉不需要的，最原始的spring boot+mybatis项目" />
+    <MESSAGE value="重新调整" />
+    <option name="LAST_COMMIT_MESSAGE" value="重新调整" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
