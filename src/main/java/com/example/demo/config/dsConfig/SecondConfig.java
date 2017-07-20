@@ -12,28 +12,26 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
+import javax.sql.DataSource;
+
 /**
  * Created by niewenlong-work on 2017/7/19.
  */
 @Configuration
 @MapperScan(basePackages = "com.example.demo.dao.second", sqlSessionFactoryRef = "secondSqlSessionFactory")
 public class SecondConfig {
-    @Autowired
-    DruidDataSourceAutoConfigure druidDataSourceAutoConfigure;
 
-    @Bean  // 如果这里不用 Qualifier 指定, 则注入的是Primary数据源
-    public SqlSessionFactory secondSqlSessionFactory(Environment environment) throws Exception {
+    @Bean
+    public SqlSessionFactory secondSqlSessionFactory(@Qualifier("secondDataSource") DataSource dataSource) throws Exception {
         SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
-        sessionFactory.setDataSource(druidDataSourceAutoConfigure.dataSourceTwo(environment));
-        // 领域模型包位置
-        sessionFactory.setTypeAliasesPackage("com.example.demo.dao.second");
-        // 设置映射文件的位置
-        sessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mapper/second/*.xml"));
+        sessionFactory.setDataSource(dataSource);
+        sessionFactory.setTypeAliasesPackage("com.example.demo.dao.second");//配置dao层
+        sessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mapper/second/*.xml"));//配置mapper层
         return sessionFactory.getObject();
     }
 
     @Bean
-    public SqlSessionTemplate ds0SqlSessionTemplate(@Qualifier("secondSqlSessionFactory") SqlSessionFactory sqlSessionFactory) {
+    public SqlSessionTemplate ds0SqlSessionTemplate(@Qualifier("secondSqlSessionFactory")SqlSessionFactory sqlSessionFactory) {
         return new SqlSessionTemplate(sqlSessionFactory);
     }
 }

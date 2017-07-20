@@ -23,22 +23,18 @@ import javax.sql.DataSource;
 @Configuration
 @MapperScan(basePackages = "com.example.demo.dao.primary", sqlSessionFactoryRef = "primarySqlSessionFactory")
 public class PrimaryConfig {
-    @Autowired
-    DruidDataSourceAutoConfigure druidDataSourceAutoConfigure;
 
-    @Bean  // 如果这里不用 Qualifier 指定, 则注入的是Primary数据源
-    public SqlSessionFactory primarySqlSessionFactory(Environment environment) throws Exception {
+    @Bean
+    public SqlSessionFactory primarySqlSessionFactory(@Qualifier("primaryDataSource") DataSource dataSource) throws Exception {
         SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
-        sessionFactory.setDataSource(druidDataSourceAutoConfigure.dataSourceOne(environment));
-        // 领域模型包位置
-        sessionFactory.setTypeAliasesPackage("com.example.demo.dao.primary");
-        // 设置映射文件的位置
-        sessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mapper/primary/*.xml"));
+        sessionFactory.setDataSource(dataSource);
+        sessionFactory.setTypeAliasesPackage("com.example.demo.dao.primary");//配置dao层
+        sessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mapper/primary/*.xml"));//配置mapper层
         return sessionFactory.getObject();
     }
 
     @Bean
-    public SqlSessionTemplate ds0SqlSessionTemplate(@Qualifier("primarySqlSessionFactory") SqlSessionFactory sqlSessionFactory) {
+    public SqlSessionTemplate ds0SqlSessionTemplate(@Qualifier("primarySqlSessionFactory")SqlSessionFactory sqlSessionFactory) {
         return new SqlSessionTemplate(sqlSessionFactory);
     }
 }

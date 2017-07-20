@@ -30,14 +30,10 @@ public class UserController {
     })
     @RequestMapping(value = "/createUser", method = RequestMethod.GET)
     public String postUser() throws MyException {
-        UserDO userDO = new UserDO();
-        userDO.setName("jin1");
-        userDO.setAge(25);
-        if (userService.insert(userDO) == 1) {
-            return "true";//
-        } else {
-            return "false";
-        }
+        UserDO user = new UserDO();
+        user.setName("jin1");
+        user.setAge(25);
+        return (userService.primaryListAll().get(0).toString() + userService.secondListAll().get(0).toString());
     }
 
 }

@@ -26,8 +26,14 @@ public class UserServiceImpl implements UserService {
         return i + i1;
     }
 
-    public List<UserDO> listAll() {
+    public List<UserDO> primaryListAll() {
         List<UserDO> userDBList = primaryPrimaryUserDao.listAll();
+        return userDBList;
+    }
+
+    @Override
+    public List<UserDO> secondListAll() {
+        List<UserDO> userDBList = secondSecondUserDao.listAll();
         return userDBList;
     }
 

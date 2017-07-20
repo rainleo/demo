@@ -9,7 +9,9 @@ public interface UserService{
 
     int insert(UserDO pojo);
 
-    List<UserDO> listAll();
+    List<UserDO> primaryListAll();
+
+    List<UserDO> secondListAll();
 
     UserDO findUserById(String name);
 
