@@ -61,6 +61,23 @@
             </Policies>
             <DefaultRolloverStrategy max="20" />
         </RollingFile>
+        <!--设置级别为DEBUG日志输出到SQL.log中-->
+        <RollingFile name="SQL" filename="${logPath}/sql.log"
+                     filepattern="${logPath}/%d{yyyy-MM-dd}-%i-sql.log.zip">
+            <Filters>
+                <!--设置只输出级别为INFO的日志-->
+                <ThresholdFilter level="DEBUG"/>
+                <ThresholdFilter level="WARN" onMatch="DENY" onMismatch="NEUTRAL"/>
+            </Filters>
+            <PatternLayout pattern="%-5level: %d{yyyy-MM-dd HH:mm:ss.SSS} %logger{36} - %msg%n" />
+            <Policies>
+                <!--设置每天打包日志一次-->
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                <!--设置日志文件满1MB后打包-->
+                <SizeBasedTriggeringPolicy size="20 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="20" />
+        </RollingFile>
     </Appenders>
 
     <Loggers>
@@ -69,12 +86,12 @@
             <appender-ref ref="WARN" />
             <appender-ref ref="ERROR" />
         </logger>
-        <logger name="classpath:mapper.primary" level="trace">
-            <appender-ref ref="Console"/>
+        <logger name="com.example.demo.dao" level="debug" additivity="true">
+            <appender-ref ref="SQL" />
         </logger>
 
         <root level="info">
-
+            <appender-ref ref="Console"/>
         </root>
 
     </Loggers>
