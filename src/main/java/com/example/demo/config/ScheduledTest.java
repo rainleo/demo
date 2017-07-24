@@ -11,8 +11,8 @@ import java.sql.Timestamp;
 @Component
 public class ScheduledTest {
 
-    @Scheduled(fixedRate = 1000)
+    @Scheduled(cron = "0 16 11 ? * *")
     public void sysNowTimeEverySecond(){
-        System.out.println(System.currentTimeMillis());
+        System.out.println("每天11点16分定时调用");
     }
 }
