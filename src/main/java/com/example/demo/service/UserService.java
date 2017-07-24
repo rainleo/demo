@@ -13,7 +13,7 @@ public interface UserService{
 
     List<UserDO> secondListAll();
 
-    UserDO findUserById(String name);
+    UserDO findUserByName(String name);
 
     int update(UserDO userDO);
 }

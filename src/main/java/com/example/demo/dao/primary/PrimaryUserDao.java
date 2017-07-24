@@ -20,6 +20,6 @@ public interface PrimaryUserDao {
 
     List<UserDO> listAll();
 
-    UserDO findUserById(@Param("name") String name);
+    UserDO findUserByName(@Param("name") String name);
 
 }

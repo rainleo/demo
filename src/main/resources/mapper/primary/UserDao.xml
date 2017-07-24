@@ -76,7 +76,7 @@
         <include refid="all_column"/>
         from  user
     </select>
-    <select id="findUserById" parameterType="String" resultType="com.example.demo.domain.UserDO">
+    <select id="findUserByName" parameterType="String" resultType="com.example.demo.domain.UserDO">
         select
         <include refid="all_column"/>
         from  user WHERE name = #{name}

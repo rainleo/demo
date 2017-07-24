@@ -37,7 +37,7 @@ public class UserController {
     public String createUser() throws MyException {
         UserDO user = new UserDO();
         user.setName("jin1");
-        user.setAge(25);
+        //user.setAge(25);
         userService.insert(user);
         return (userService.primaryListAll().get(0).toString() + userService.secondListAll().get(0).toString());
     }

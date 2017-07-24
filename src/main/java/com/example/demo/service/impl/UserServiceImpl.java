@@ -37,8 +37,8 @@ public class UserServiceImpl implements UserService {
         return userDBList;
     }
 
-    public UserDO findUserById(String name){
-        return primaryPrimaryUserDao.findUserById(name);
+    public UserDO findUserByName(String name){
+        return primaryPrimaryUserDao.findUserByName(name);
     }
 
     @Override
