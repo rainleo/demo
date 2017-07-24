@@ -6,12 +6,8 @@ import com.example.demo.exception.MyException;
 import com.example.demo.service.UserService;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.config.Task;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.*;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 
@@ -25,6 +21,8 @@ public class UserController {
     private UserService userService;
     @Autowired
  	private AsyncTaskTest asyncTaskTest;
+
+
 
 
     @ApiOperation(value = "创建用户", notes = "根据User对象创建用户")
