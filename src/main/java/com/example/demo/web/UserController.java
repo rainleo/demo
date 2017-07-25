@@ -34,12 +34,12 @@ public class UserController {
             @ApiResponse(code = 200, message = "results", response = String.class)
     })
     @RequestMapping(value = "/createUser", method = RequestMethod.GET)
-    public String createUser() throws MyException {
+    public void createUser() throws MyException {
         UserDO user = new UserDO();
         user.setName("jin1");
         //user.setAge(25);
-        userService.insert(user);
-        return (userService.primaryListAll().get(0).toString() + userService.secondListAll().get(0).toString());
+        //userService.insert(user);
+        //return (userService.primaryListAll().get(0).toString() + userService.secondListAll().get(0).toString());
     }
 
     /**

@@ -1,19 +1,23 @@
 package com.example.demo.service;
 
 import com.example.demo.domain.UserDO;
+import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 
-public interface UserService{
+public interface UserService {
+
 
     int insert(UserDO pojo);
 
-    List<UserDO> primaryListAll();
+    int insertSelective(UserDO pojo);
 
-    List<UserDO> secondListAll();
+    int insertList(List<UserDO> pojos);
 
-    UserDO findUserByName(String name);
+    int update(UserDO pojo);
 
-    int update(UserDO userDO);
+    UserDO findByName(String name);
+
 }
