@@ -59,6 +59,14 @@ public class ShiroConfiguration {
         securityManager.setCacheManager(ehCacheManager());//这个如果执行多次，也是同样的一个对象;
         return securityManager;
     }
+    /**
+     * 身份认证realm; (这个需要自己写，账号密码校验；权限等)
+     */
+    @Bean
+    public MyShiroRealm myShiroRealm() {
+        MyShiroRealm myShiroRealm = new MyShiroRealm();
+        return myShiroRealm;
+    }
 
     /**
      * 缓存配置
@@ -70,14 +78,6 @@ public class ShiroConfiguration {
         return cacheManager;
     }
 
-    /**
-     * 身份认证realm; (这个需要自己写，账号密码校验；权限等)
-     */
-    @Bean
-    public MyShiroRealm myShiroRealm() {
-        MyShiroRealm myShiroRealm = new MyShiroRealm();
-        return myShiroRealm;
-    }
     /**
      * Shiro生命周期处理器 * @return
      */
