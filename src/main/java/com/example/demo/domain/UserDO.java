@@ -11,6 +11,9 @@ public class UserDO implements Serializable {
     private Long id;
     private String name;
     private String password;
+    /**
+     * 角色 1 是管理员
+     */
     private Integer roleId;
 
     public String getPassword() {

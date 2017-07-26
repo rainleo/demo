@@ -22,9 +22,6 @@ public class UserController {
     @Autowired
  	private AsyncTaskTest asyncTaskTest;
 
-
-
-
     @ApiOperation(value = "创建用户", notes = "根据User对象创建用户")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "id", value = "id", required = false, dataType = "int",paramType = "query"),
@@ -42,24 +39,6 @@ public class UserController {
         //return (userService.primaryListAll().get(0).toString() + userService.secondListAll().get(0).toString());
     }
 
-    /**
-     * 异步回调demo
-     * @return
-     * @throws Exception
-     */
-    @RequestMapping(value = "/testAsyncTask", method = RequestMethod.GET)
-    public long testAsyncTask() throws Exception {
-        long startTime = System.currentTimeMillis();
-        Future<String> task1 = asyncTaskTest.doTaskOne();
-        Future<String> task2 = asyncTaskTest.doTaskTwo();
-        Future<String> task3 = asyncTaskTest.doTaskThree();
-        while(true) {
-            if (task1.isDone() && task2.isDone() && task3.isDone()) {
-                break;
-            }
-        }
-        long endTime = System.currentTimeMillis();
-        return (endTime - startTime);
-    }
+
 
 }

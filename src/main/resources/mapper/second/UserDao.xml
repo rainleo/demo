@@ -20,7 +20,7 @@
         INSERT INTO user (
             `id`,
             `name`,
-            `age`
+            password
         ) VALUES (
             #{pojo.id},
             #{pojo.name},
