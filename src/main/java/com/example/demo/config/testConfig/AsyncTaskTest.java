@@ -1,4 +1,4 @@
-package com.example.demo.config;
+package com.example.demo.config.testConfig;
 
 /**
  * Created by niewenlong on 2017/7/24.
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 import java.util.concurrent.Future;
 
 /**
- * 异步回调测试
+ * 异步回调demo
  */
 @Component
 public class AsyncTaskTest {

@@ -1,6 +1,6 @@
 package com.example.demo.web;
 
-import com.example.demo.config.AsyncTaskTest;
+import com.example.demo.config.testConfig.AsyncTaskTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

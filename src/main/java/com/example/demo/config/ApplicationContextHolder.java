@@ -6,6 +6,7 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
 /**
+ * spring bean 管理 可以根据 name获取bean...
  * Created by niewenlong-work on 2017/7/21.
  */
 @Component

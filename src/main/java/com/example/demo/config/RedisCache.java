@@ -12,6 +12,7 @@ import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
+ * redis缓存 实现mybatis的cache
  * Created by niewenlong-work on 2017/7/21.
  */
 public class RedisCache implements Cache {

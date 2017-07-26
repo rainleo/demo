@@ -1,4 +1,4 @@
-package com.example.demo.config;
+package com.example.demo.config.testConfig;
 
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import java.sql.Timestamp;
 
 /**
+ * spring boot 定时调度demo
  * Created by niewenlong on 2017/7/24.
  */
 @Component

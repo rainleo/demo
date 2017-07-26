@@ -1,14 +1,12 @@
 package com.example.demo.web;
 
-import com.example.demo.config.AsyncTaskTest;
+import com.example.demo.config.testConfig.AsyncTaskTest;
 import com.example.demo.domain.UserDO;
 import com.example.demo.exception.MyException;
 import com.example.demo.service.UserService;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.concurrent.Future;
 
 
 /**

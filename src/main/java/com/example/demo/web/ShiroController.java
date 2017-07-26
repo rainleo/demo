@@ -17,7 +17,7 @@ import java.util.Map;
  * Created by niewenlong on 2017/7/24.
  */
 @Controller(value = "LoginController")
-public class SecurityController {
+public class ShiroController {
 
     //登录页(shiro配置需要两个/login 接口,一个是get用来获取登陆页面,一个用post用于登录,这是一个坑)
     @RequestMapping(value="/login", method = RequestMethod.GET)
