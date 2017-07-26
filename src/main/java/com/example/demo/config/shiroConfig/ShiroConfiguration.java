@@ -1,11 +1,5 @@
 package com.example.demo.config.shiroConfig;
 
-import org.apache.shiro.cache.ehcache.EhCacheManager;
-import org.apache.shiro.mgt.SecurityManager;
-import org.apache.shiro.spring.LifecycleBeanPostProcessor;
-import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
-import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
-import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,9 +15,8 @@ import java.util.Map;
  * 既然是使用 Filter 一般也就能猜到，是通过URL规则来进行过滤和权限校验，所以我们需要定义一系列关于URL的规则和访问权限。
  */
 
-@Configuration
-@Order(1)
-public class ShiroConfiguration {
+
+public class ShiroConfiguration {/*
 
     @Bean(name = "shiroFilter")
     public ShiroFilterFactoryBean shiroFilterFactoryBean(SecurityManager securityManager) {
@@ -36,7 +29,7 @@ public class ShiroConfiguration {
         filterChainDefinitionMap.put("/index", "user");
         filterChainDefinitionMap.put("/", "user");
         //设置之后，所有的链接都需要进行认证
-        filterChainDefinitionMap.put("/**", "authc");
+        filterChainDefinitionMap.put("*//**", "authc");
         //默认所有未登录的界面都会跳转到login.html
         shiroFilterFactoryBean.setLoginUrl("/login");
         //登录成功后跳转的界面(可能没有效果，情况未知)
@@ -47,10 +40,10 @@ public class ShiroConfiguration {
         return shiroFilterFactoryBean;
     }
 
-    /**
+    *//**
      * 核心manager
      * @return
-     */
+     *//*
     @Bean("securityManager")
     public SecurityManager securityManager() {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
@@ -59,37 +52,37 @@ public class ShiroConfiguration {
         securityManager.setCacheManager(ehCacheManager());//这个如果执行多次，也是同样的一个对象;
         return securityManager;
     }
-    /**
+    *//**
      * 身份认证realm; (这个需要自己写，账号密码校验；权限等)
-     */
+     *//*
     @Bean
     public MyShiroRealm myShiroRealm() {
         MyShiroRealm myShiroRealm = new MyShiroRealm();
         return myShiroRealm;
     }
 
-    /**
+    *//**
      * 缓存配置
      * @return
-     */
+     *//*
     @Bean
     public EhCacheManager ehCacheManager() {
         EhCacheManager cacheManager = new EhCacheManager();
         return cacheManager;
     }
 
-    /**
+    *//**
      * Shiro生命周期处理器 * @return
-     */
+     *//*
     @Bean
     public LifecycleBeanPostProcessor lifecycleBeanPostProcessor() {
         return new LifecycleBeanPostProcessor();
     }
 
-    /**
+    *//**
      * 开启Shiro的注解(如@RequiresRoles,@RequiresPermissions),需借助SpringAOP扫描使用Shiro注解的类,
      * 并在必要时进行安全逻辑验证 * 配置以下两个bean(DefaultAdvisorAutoProxyCreator(可选)和AuthorizationAttributeSourceAdvisor)即可实现此功能 * @return
-     */
+     *//*
     @Bean
     @DependsOn({"lifecycleBeanPostProcessor"})
     public DefaultAdvisorAutoProxyCreator advisorAutoProxyCreator() {
@@ -104,6 +97,6 @@ public class ShiroConfiguration {
         authorizationAttributeSourceAdvisor.setSecurityManager(securityManager);
         return authorizationAttributeSourceAdvisor;
     }
-
+*/
 
 }

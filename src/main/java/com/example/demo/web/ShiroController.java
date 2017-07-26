@@ -1,9 +1,5 @@
 package com.example.demo.web;
 
-import org.apache.shiro.authc.IncorrectCredentialsException;
-import org.apache.shiro.authc.UnknownAccountException;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +13,7 @@ import java.util.Map;
  * Created by niewenlong on 2017/7/24.
  */
 @Controller(value = "LoginController")
-public class ShiroController {
+public class ShiroController {/*
 
     //登录页(shiro配置需要两个/login 接口,一个是get用来获取登陆页面,一个用post用于登录,这是一个坑)
     @RequestMapping(value="/login", method = RequestMethod.GET)
@@ -64,5 +60,5 @@ public class ShiroController {
     public String aix(HttpServletRequest request,Model model){
         return "aix";
     }
-
+*/
 }
