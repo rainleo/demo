@@ -1,10 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.domain.UserDO;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
-import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 
