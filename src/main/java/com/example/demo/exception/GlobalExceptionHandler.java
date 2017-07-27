@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 @ControllerAdvice
 class GlobalExceptionHandler {
 
-    public static final String DEFAULT_ERROR_VIEW = "error";
+    public static final String DEFAULT_ERROR_VIEW = "403";
 
     //统一定义，如果发生了异常，跳转到error.vm界面
     @ExceptionHandler(value = Exception.class)

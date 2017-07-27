@@ -1,48 +1,37 @@
 package com.example.demo.web;
 
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-
-import javax.servlet.http.HttpServletRequest;
-import java.util.Map;
-
 /**
  * 登录权限控制demo
  * Created by niewenlong on 2017/7/24.
+ * @EnableWebSecurity//(开启)
+ @Controller(value = "SecurityController")
  */
-@EnableWebSecurity //不开启的话 访问会报错，很严重  严重  启用web安全
-@Controller(value = "SecurityController")
 public class SecurityController {
-
+    /*
     //主页
     @RequestMapping({"/","/index"})
-    public String index(HttpServletRequest request,Model model){
+    public String index(){
         return "index";
     }
     //登录
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login(HttpServletRequest request,Model model){
+    public String login(){
         return "login";
     }
 
     //hello页面
     //需要权限 1 或者 角色权限 @RequiresRoles(value = {"1"})
     @RequestMapping(value = "/hello")
-    @PreAuthorize("hasRole('ROLE_2')")
-    public String hello(HttpServletRequest request,Model model){
+    public String hello(){
         return "hello";
     }
 
     //aix页面
     //需要权限
     @RequestMapping(value = "/aix")
-    public String aix(HttpServletRequest request,Model model){
+    @PreAuthorize("hasRole('ROLE_1')")
+    public String aix(){
         return "aix";
     }
-
+*/
 }

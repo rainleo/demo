@@ -1,6 +1,6 @@
 package com.example.demo.config.securityConfig;
 
-import com.example.demo.domain.UserDO;
+/*import com.example.demo.domain.UserDO;
 import com.example.demo.service.UserService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,14 +12,17 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
 import java.util.HashSet;
-import java.util.Set;
+import java.util.Set;*/
 
 /**
+ * 继承UserDetailsService 核心功能 验证密码和权限
  * Created by niewenlong on 2017/7/26.
+ * 注解：@Component
+ * 实现：implements UserDetailsService
  */
-@Component
-public class MyUserDetailsService implements UserDetailsService {
 
+public class MyUserDetailsService{
+    /*
     @Autowired
     private UserService userService;
 
@@ -39,5 +42,5 @@ public class MyUserDetailsService implements UserDetailsService {
                 true,//证书不过期为true
                 true,//账户未锁定为true
                 authorities);
-    }
+    }*/
 }

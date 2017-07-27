@@ -12,7 +12,7 @@ import java.util.concurrent.Future;
  * Created by niewenlong on 2017/7/25.
  */
 @RestController
-public class ControllerTest {
+public class TestController {
 
     @Autowired
     private AsyncTaskTest asyncTaskTest;
