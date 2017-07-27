@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 /**
- * 登录权限控制demo
+ * shiro 登录权限控制demo
  * Created by niewenlong on 2017/7/24.
  */
 @Controller

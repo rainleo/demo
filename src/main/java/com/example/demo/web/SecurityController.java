@@ -1,10 +1,10 @@
 package com.example.demo.web;
 
 /**
- * 登录权限控制demo
+ * security 登录权限控制demo
  * Created by niewenlong on 2017/7/24.
- * @EnableWebSecurity//(开启)
- @Controller(value = "SecurityController")
+ * @EnableWebSecurity //(如果不配置在这里的话，会出现访问找不到Mapper方法名的情况)
+ * @Controller (value = "SecurityController")
  */
 public class SecurityController {
     /*
