@@ -16,6 +16,6 @@ public interface UserService {
 
     int update(UserDO pojo);
 
-    UserDO findByName(String name);
+    List<UserDO> findByName(String name);
 
 }

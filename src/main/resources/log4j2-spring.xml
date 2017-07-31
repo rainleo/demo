@@ -8,7 +8,7 @@
         <!--TRACE < DEBUG < INFO < WARN < ERROR < FATAL -->
         <!--设置在控制台打印日志-->
         <Console name="Console" target="SYSTEM_OUT">
-            <PatternLayout pattern="%-5level: %d{yyyy-MM-dd HH:mm:ss.SSS} %logger{36} - %msg%n" />
+            <PatternLayout pattern="%-5level:%d{yyyy-MM-dd HH:mm:ss.SSS} %logger{36}:Line:%-3L - %msg%n" />
         </Console>
 
         <!--设置级别为INFO日志输出到info.log中-->
@@ -19,7 +19,7 @@
                 <ThresholdFilter level="INFO"/>
                 <ThresholdFilter level="WARN" onMatch="DENY" onMismatch="NEUTRAL"/>
             </Filters>
-            <PatternLayout pattern="%-5level: %d{yyyy-MM-dd HH:mm:ss.SSS} %logger{36} - %msg%n" />
+            <PatternLayout pattern="%-5level:%d{yyyy-MM-dd HH:mm:ss.SSS} %logger{36}:Line:%-3L - %msg%n" />
             <Policies>
                 <!--设置每天打包日志一次-->
                 <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
@@ -37,7 +37,7 @@
                 <ThresholdFilter level="WARN"/>
                 <ThresholdFilter level="ERROR" onMatch="DENY" onMismatch="NEUTRAL"/>
             </Filters>
-            <PatternLayout pattern="%-5level: %d{yyyy-MM-dd HH:mm:ss.SSS} %logger{36} - %msg%n" />
+            <PatternLayout pattern="%-5level:%d{yyyy-MM-dd HH:mm:ss.SSS} %logger{36}:Line:%-3L - %msg%n" />
             <Policies>
                 <!--设置每天打包日志一次-->
                 <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
@@ -52,7 +52,7 @@
                      filepattern="${logPath}/%d{yyyy-MM-dd}-%i-error.log.zip">
             <!--设置只输出级别为ERROR的日志-->
             <ThresholdFilter level="ERROR"/>
-            <PatternLayout pattern="%-5level: %d{yyyy-MM-dd HH:mm:ss.SSS} %logger{36} - %msg%n" />
+            <PatternLayout pattern="%-5level:%d{yyyy-MM-dd HH:mm:ss.SSS} %logger{36}:Line:%-3L - %msg%n" />
             <Policies>
                 <!--设置每天打包日志一次-->
                 <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
@@ -69,7 +69,7 @@
                 <ThresholdFilter level="DEBUG"/>
                 <ThresholdFilter level="WARN" onMatch="DENY" onMismatch="NEUTRAL"/>
             </Filters>
-            <PatternLayout pattern="%-5level: %d{yyyy-MM-dd HH:mm:ss.SSS} %logger{36} - %msg%n" />
+            <PatternLayout pattern="%-5level:%d{yyyy-MM-dd HH:mm:ss.SSS} %logger{36}:Line:%-3L - %msg%n" />
             <Policies>
                 <!--设置每天打包日志一次-->
                 <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
@@ -81,16 +81,16 @@
     </Appenders>
 
     <Loggers>
-        <logger name="com.example.demo" level="debug" additivity="true">
+        <logger name="com.example.demo" level="DEBUG" additivity="true">
             <appender-ref ref="INFO" />
             <appender-ref ref="WARN" />
             <appender-ref ref="ERROR" />
         </logger>
-        <logger name="com.example.demo.dao" level="debug" additivity="true">
+        <logger name="com.example.demo.dao" level="DEBUG" additivity="true">
             <appender-ref ref="SQL" />
         </logger>
 
-        <root level="debug">
+        <root level="info">
             <appender-ref ref="Console"/>
         </root>
 

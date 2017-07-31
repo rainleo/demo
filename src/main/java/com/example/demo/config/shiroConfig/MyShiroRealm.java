@@ -12,6 +12,8 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+
 /**
  * @author niewenlong-work
  * Description:身份校验核心类
@@ -35,10 +37,10 @@ public class MyShiroRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token)  throws AuthenticationException {
         String username = (String) token.getPrincipal();
         //判断输入的用户是否存在
-        UserDO userDO = userService.findByName(username);
+        List<UserDO> userDO = userService.findByName(username);
         if (userDO != null) {
             //shiro自动判断 用户名和密码是否匹配
-            return new SimpleAuthenticationInfo(userDO.getName(), userDO.getPassword(), getName());
+            return new SimpleAuthenticationInfo(userDO.get(0).getName(), userDO.get(0).getPassword(), getName());
         }
         return null;
     }
@@ -53,12 +55,12 @@ public class MyShiroRealm extends AuthorizingRealm {
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
         String userName = (String) principals.getPrimaryPrincipal();
-        UserDO userDO = userService.findByName(userName);
+        List<UserDO> userDO = userService.findByName(userName);
         if (userDO != null) {
             //设置哪些角色可以访问
-            authorizationInfo.addRole(String.valueOf(userDO.getRoleId()));
+            authorizationInfo.addRole(String.valueOf(userDO.get(0).getRoleId()));
             //设置拥有哪些权限可以访问
-            authorizationInfo.addStringPermission(String.valueOf(userDO.getRoleId()));
+            authorizationInfo.addStringPermission(String.valueOf(userDO.get(0).getRoleId()));
             return authorizationInfo;
         }
         return null;

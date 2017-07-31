@@ -15,13 +15,13 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  * redis缓存 实现mybatis的cache
  * Created by niewenlong-work on 2017/7/21.
  */
-public class RedisCache implements Cache {
-    private static final Logger logger = LoggerFactory.getLogger(RedisCache.class);
+public class MybatisRedisCache implements Cache {
+    private static final Logger logger = LoggerFactory.getLogger(MybatisRedisCache.class);
     private final ReadWriteLock readWriteLock = new ReentrantReadWriteLock();
     private final String id; // cache instance id
     private RedisTemplate redisTemplate;
     private static final long EXPIRE_TIME_IN_MINUTES = 30; // redis过期时间
-    public RedisCache(String id) {
+    public MybatisRedisCache(String id) {
         if (id == null) {
             throw new IllegalArgumentException("Cache instances require an ID");
         }
@@ -43,7 +43,7 @@ public class RedisCache implements Cache {
         RedisTemplate redisTemplate = getRedisTemplate();
         ValueOperations opsForValue = redisTemplate.opsForValue();
         opsForValue.set(key, value, EXPIRE_TIME_IN_MINUTES, TimeUnit.MINUTES);
-        logger.debug("向redis缓存中存放数据");
+        logger.info("向redis缓存中存放数据");
     }
     /**
      * 从redis获取数据
@@ -55,7 +55,7 @@ public class RedisCache implements Cache {
     public Object getObject(Object key) {
         RedisTemplate redisTemplate = getRedisTemplate();
         ValueOperations opsForValue = redisTemplate.opsForValue();
-        logger.debug("从redis缓存中获取数据");
+        logger.info("从redis缓存中获取数据");
         return opsForValue.get(key);
     }
     /**
@@ -69,7 +69,7 @@ public class RedisCache implements Cache {
     public Object removeObject(Object key) {
         RedisTemplate redisTemplate = getRedisTemplate();
         redisTemplate.delete(key);
-        logger.debug("从redis缓存中删除数据");
+        logger.info("从redis缓存中删除数据");
         return null;
     }
     /**
@@ -82,7 +82,7 @@ public class RedisCache implements Cache {
             connection.flushDb();
             return null;
         });
-        logger.debug("清空缓存");
+        logger.info("清空缓存");
     }
     @Override
     public int getSize() {

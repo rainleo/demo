@@ -18,7 +18,9 @@ public interface PrimaryUserDao {
 
     int update(@Param("pojo") UserDO pojo);
 
-    UserDO findByName(@Param("name")String name);
+    List<UserDO> findByName(@Param("name")String name);
+
+
 
 
 }
