@@ -26,8 +26,7 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-    @Autowired
- 	private AsyncTaskTest asyncTaskTest;
+
 
     @ApiOperation(value = "创建用户", notes = "根据User对象创建用户")
     @ApiImplicitParams({
@@ -43,12 +42,6 @@ public class UserController {
         user.setName("niewenlong");
         user.setPassword("niewenlong");
         userService.insert(user);
-        try{
-            int i = 1/0;
-        }catch (Exception e){
-            e.printStackTrace();
-            logger.error(e.getMessage());
-        }
         List<UserDO> userDOList = userService.findByName("niewenlong");
         JSONObject needJson = new JSONObject();
         needJson.put("list",userDOList);

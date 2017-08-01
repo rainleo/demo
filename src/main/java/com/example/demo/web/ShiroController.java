@@ -34,7 +34,7 @@ public class ShiroController {
             } else if (IncorrectCredentialsException.class.getName().equals(exception)) {
                 msg = "提示->密码不正确";
             } else {
-                msg = "提示->未知错误";
+                msg = exception.toString();
             }
             map.put("msg", msg);
             return "login";

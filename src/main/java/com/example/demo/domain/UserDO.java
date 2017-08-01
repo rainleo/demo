@@ -8,6 +8,7 @@ import java.util.ArrayList;
  */
 public class UserDO implements Serializable {
 
+    private static final long serialVersionUID = -5844045978624854583L;
     private Long id;
     private String name;
     private String password;
