@@ -1,5 +1,6 @@
-package com.example.demo.config;
+package com.example.demo.config.redisConfig;
 
+import com.example.demo.config.ApplicationContextHolder;
 import org.apache.ibatis.cache.Cache;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,8 +15,10 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 /**
  * redis缓存 实现mybatis的cache
  * Created by niewenlong-work on 2017/7/21.
+ * implements Cache
  */
-public class MybatisRedisCache implements Cache {
+
+public class MybatisRedisCache  {/*
     private static final Logger logger = LoggerFactory.getLogger(MybatisRedisCache.class);
     private final ReadWriteLock readWriteLock = new ReentrantReadWriteLock();
     private final String id; // cache instance id
@@ -31,12 +34,12 @@ public class MybatisRedisCache implements Cache {
     public String getId() {
         return id;
     }
-    /**
+    *//**
      * 向redis缓存中存放数据
      *
      * @param key
      * @param value
-     */
+     *//*
     @Override
     @SuppressWarnings("unchecked")
     public void putObject(Object key, Object value) {
@@ -45,12 +48,12 @@ public class MybatisRedisCache implements Cache {
         opsForValue.set(key, value, EXPIRE_TIME_IN_MINUTES, TimeUnit.MINUTES);
         logger.info("向redis缓存中存放数据");
     }
-    /**
+    *//**
      * 从redis获取数据
      *
      * @param key
      * @return
-     */
+     *//*
     @Override
     public Object getObject(Object key) {
         RedisTemplate redisTemplate = getRedisTemplate();
@@ -58,12 +61,12 @@ public class MybatisRedisCache implements Cache {
         logger.info("从redis缓存中获取数据");
         return opsForValue.get(key);
     }
-    /**
+    *//**
      * 从redis缓存中删除数据
      *
      * @param key
      * @return
-     */
+     *//*
     @Override
     @SuppressWarnings("unchecked")
     public Object removeObject(Object key) {
@@ -72,9 +75,9 @@ public class MybatisRedisCache implements Cache {
         logger.info("从redis缓存中删除数据");
         return null;
     }
-    /**
+    *//**
      * 清空缓存
-     */
+     *//*
     @Override
     public void clear() {
         RedisTemplate redisTemplate = getRedisTemplate();
@@ -97,5 +100,5 @@ public class MybatisRedisCache implements Cache {
             redisTemplate = ApplicationContextHolder.getBean("redisTemplate");
         }
         return redisTemplate;
-    }
+    }*/
 }
