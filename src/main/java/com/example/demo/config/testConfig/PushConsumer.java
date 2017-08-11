@@ -25,7 +25,7 @@ public class PushConsumer {
                 "ConsumerGroupName");
         consumer.setNamesrvAddr("106.14.0.109:9876");
         consumer.setInstanceName("Consumber");
-
+        consumer.setVipChannelEnabled(false);
         /**
          * 订阅指定topic下tags分别等于TagA或TagC或TagD
          */
@@ -37,7 +37,6 @@ public class PushConsumer {
         consumer.subscribe("TopicTest2", "*");
 
         consumer.registerMessageListener(new MessageListenerConcurrently() {
-
             /**
              * 默认msgs里只有一条消息，可以通过设置consumeMessageBatchMaxSize参数来批量接收消息
              */
@@ -67,7 +66,6 @@ public class PushConsumer {
                 return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
             }
         });
-
         /**
          * Consumer对象在使用之前必须要调用start初始化，初始化一次即可<br>
          */
