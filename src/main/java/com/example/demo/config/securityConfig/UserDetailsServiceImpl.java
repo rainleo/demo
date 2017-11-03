@@ -37,14 +37,31 @@ public class UserDetailsServiceImpl implements UserDetailsService {
      *//*
 
     @Override
-    public UserDetails loadUserByUsername(String username) {
+    public UserDetails loadUserByUsername(String username) {{
         UserDO user = userService.findByName(username);
         RoleDO role = roleService.findById(user.getRoleId());
 
         if (user == null) {
             throw new UsernameNotFoundException(String.format("No user found with username '%s'.", username));
         } else {
-            return SecurityModelFactory.create(user,role.getAuth(),role.getRoleName());
+            Collection<? extends GrantedAuthority> authorities;
+            try {
+                //ROLE_ADMIN,user,admin 身份:权限
+                authorities = AuthorityUtils.commaSeparatedStringToAuthorityList(role.getRoleName() +"," + role.getAuth() + ",");
+            } catch (Exception e) {
+                authorities = null;
+            }
+
+            Date lastPasswordReset = new Date();
+            lastPasswordReset.setTime(user.getLastPasswordChange().getTime());
+            return new UserDetailsDO(
+                    user.getId(),
+                    user.getName(),
+                    user.getPassword(),
+                    lastPasswordReset,
+                    authorities,
+                    user.getEnable()
+            );
         }
     }
 }
